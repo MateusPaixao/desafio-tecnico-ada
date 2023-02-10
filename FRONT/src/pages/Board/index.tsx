@@ -4,8 +4,6 @@ import { CardService } from 'services'
 
 import { Container } from './styles'
 
-import axios from 'axios'
-
 const Board = () => {
   const [cards, setCards] = useState<CardDto[]>([])
 
@@ -19,9 +17,11 @@ const Board = () => {
   ]
 
   useEffect(() => {
-    CardService
+    if(!cards.length){
+      CardService
       .list()
       .then((data) => setCards(data))
+    }
   }, [])
 
   const handleMove = (targetList: number, cardData: CardDto) => {

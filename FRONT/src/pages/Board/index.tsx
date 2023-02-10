@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, FormEvent } from "react";
 import { Card, CardDto, List } from "components";
+import { CardService } from 'services'
 
 import { Container } from './styles'
 
@@ -18,9 +19,9 @@ const Board = () => {
   ]
 
   useEffect(() => {
-    axios
-      .get('http://localhost:3333/cards')
-      .then(({data}) => setCards(data))
+    CardService
+      .list()
+      .then((data) => setCards(data))
   }, [])
 
   const handleMove = (targetList: number, cardData: CardDto) => {
@@ -30,14 +31,9 @@ const Board = () => {
       lista: newList.key,
     }
 
-    axios
-      .put('http://localhost:3333/cards/'+cardData.id, cardUpdated)
-      .then(() => {
-        const cardsUpdated = cards.map(card => {
-          return card.id === cardData.id ? cardUpdated : card
-        })
-        setCards(cardsUpdated)
-      })
+    CardService
+      .update(cardUpdated, cards)
+      .then(setCards)
   }
 
   const handleCreate = (e: FormEvent<HTMLFormElement>) => {
@@ -54,22 +50,18 @@ const Board = () => {
       lista: 'todo'
     }
 
-    axios
-      .post('http://localhost:3333/cards', cardData)
-      .then(({data}) => {
-        setCards([...cards, data])
-      })
-
+    CardService
+      .create(cardData)
+      .then(data => setCards([...cards, data]))
+    
     e.currentTarget.reset()
   }
 
 
   const handleDelete = (cardId: string) => {
-    axios
-      .delete('http://localhost:3333/cards/'+cardId)
-      .then(({ data }) => {
-        setCards(data)
-      })
+    CardService
+      .delete(cardId)
+      .then(setCards)
   }
 
   return (

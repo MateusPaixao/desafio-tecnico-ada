@@ -1,14 +1,11 @@
-import { useState, useEffect, useRef, FormEvent } from "react";
-import { Card, CardDto, List } from "components";
+import { useState, useEffect, FormEvent } from "react";
+import { Card, CardDto, List, FormNewCard } from "components";
 import { CardService } from 'services'
 
 import { Container } from './styles'
 
 const Board = () => {
   const [cards, setCards] = useState<CardDto[]>([])
-
-  const titleInputRef = useRef<HTMLInputElement>(null)
-  const contentInputRef = useRef<HTMLInputElement>(null)
 
   const lists = [
     { key: 'todo', name: 'To Do' },
@@ -36,11 +33,8 @@ const Board = () => {
       .then(setCards)
   }
 
-  const handleCreate = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    const titulo = titleInputRef.current?.value
-    const conteudo = contentInputRef.current?.value
+  const handleCreate = (e: FormEvent<HTMLFormElement>, values: string[]) => {
+    const [titulo, conteudo] = values
 
     if(!titulo?.trim() || !conteudo?.trim()) return
 
@@ -67,11 +61,7 @@ const Board = () => {
   return (
     <Container>
       <List name="Novo">
-        <form onSubmit={handleCreate}>
-          <input ref={titleInputRef} type="text" name="title" placeholder="Título" />
-          <input ref={contentInputRef} type="text" name="content" placeholder="Conteúdo" />
-          <button>Adicionar</button>
-        </form>
+        <FormNewCard onSubmit={handleCreate}/>
       </List>
 
       {lists.map(({key, name}, index) => {

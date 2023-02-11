@@ -1,4 +1,4 @@
-import { useState, useEffect, FormEvent } from 'react';
+import { useState, useEffect, useRef, FormEvent } from 'react';
 import { Card, CardDto, List, FormNewCard } from 'components';
 import { CardService } from 'services';
 
@@ -6,6 +6,7 @@ import { Container } from './styles';
 
 const Board = () => {
 	const [cards, setCards] = useState<CardDto[]>([]);
+	const cardsLoadedRef = useRef(false);
 
 	const lists = [
 		{ key: 'todo', name: 'To Do', color: '#2A92BF' },
@@ -14,9 +15,9 @@ const Board = () => {
 	];
 
 	useEffect(() => {
-		if (!cards.length) {
-			CardService.list().then((data) => setCards(data));
-		}
+		if (cardsLoadedRef.current) return;
+		CardService.list().then((data) => setCards(data));
+		cardsLoadedRef.current = true;
 	}, []);
 
 	const handleMove = (targetList: number, cardData: CardDto) => {

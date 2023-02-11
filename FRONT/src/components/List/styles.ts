@@ -14,7 +14,7 @@ export const Container = styled.div<ContainerProps>`
 		transform: scale(1.01);
 	}
 
-	h2 {
+	> h2 {
 		background-color: ${({ color }) => color};
 		padding: 5px 10px;
 		font-weight: bold;

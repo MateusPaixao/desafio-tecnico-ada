@@ -7,7 +7,8 @@ export const Container = styled.form`
 	background-color: #191a1d;
 	padding: 15px;
 
-	input {
+	input,
+	textarea {
 		background-color: transparent;
 		color: #fff;
 		border: none;
@@ -20,6 +21,11 @@ export const Container = styled.form`
 		&::placeholder {
 			color: #cecece;
 		}
+	}
+
+	textarea {
+		resize: vertical;
+		min-height: 80px;
 	}
 
 	button {

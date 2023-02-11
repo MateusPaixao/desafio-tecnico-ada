@@ -9,7 +9,7 @@ interface FormProps {
 
 export const FormNewCard = ({ onSubmit }: FormProps) => {
 	const titleInputRef = useRef<HTMLInputElement>(null);
-	const contentInputRef = useRef<HTMLInputElement>(null);
+	const contentInputRef = useRef<HTMLTextAreaElement>(null);
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -23,7 +23,7 @@ export const FormNewCard = ({ onSubmit }: FormProps) => {
 	return (
 		<Container onSubmit={handleSubmit}>
 			<input ref={titleInputRef} type="text" name="title" placeholder="Título" />
-			<input ref={contentInputRef} type="text" name="content" placeholder="Conteúdo" />
+			<textarea ref={contentInputRef} name="content" placeholder="Conteúdo"></textarea>
 			<button aria-label="Adicionar">
 				<FiPlusCircle size={20} color="#fff" />
 			</button>

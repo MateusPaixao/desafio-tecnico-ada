@@ -19,9 +19,20 @@ const credentialsPayload = {
 
 api.interceptors.request.use(
 	async (config) => {
-		const { data } = await apiAuth.post('/login', credentialsPayload);
-		const token = data ? `Bearer ${data}` : '';
-		config.headers['Authorization'] = token;
+		const accessTokenKey = 'access_token';
+
+		const accessToken = sessionStorage.getItem(accessTokenKey);
+
+		if (accessToken) {
+			config.headers['Authorization'] = accessToken;
+		} else {
+			const { data } = await apiAuth.post('/login', credentialsPayload);
+			const token = data ? `Bearer ${data}` : '';
+
+			sessionStorage.setItem(accessTokenKey, token);
+			config.headers['Authorization'] = token;
+		}
+
 		return config;
 	},
 	(error) => {

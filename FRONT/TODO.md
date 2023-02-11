@@ -9,8 +9,9 @@
 [x] TODO: Create components: FormNewCard
 [x] TODO: Add Eslint
 [x] TODO: Update component: Card -> Edit mode
-[ ] TODO: Icons: Add icons lib
-[ ] TODO: Layout: Improve layout
+[x] TODO: Icons: Add icons lib
+[x] TODO: Layout: Improve layout
+[x] TODO: Fix: unnecessary requests
 [ ] TODO: Tests: Unit tests
 [ ] TODO: Mobile: Adapt to responsive
 

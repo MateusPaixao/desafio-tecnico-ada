@@ -1,17 +1,18 @@
 import { ReactNode } from 'react';
 
-import { Container } from './styles';
+import { Container, Content } from './styles';
 
 interface ListProps {
 	name: string;
+	color: string;
 	children: ReactNode;
 }
 
-export const List = ({ name, children }: ListProps) => {
+export const List = ({ name, color, children }: ListProps) => {
 	return (
-		<Container>
-			<h1>{name}</h1>
-			<div>{children}</div>
+		<Container color={color}>
+			<h2>{name}</h2>
+			<Content>{children}</Content>
 		</Container>
 	);
 };

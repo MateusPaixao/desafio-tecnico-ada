@@ -1,6 +1,6 @@
 import { useState, useRef, FormEvent } from 'react';
 import { FiEdit, FiArrowLeftCircle, FiArrowRightCircle, FiTrash, FiXCircle, FiSave } from 'react-icons/fi';
-import { Container } from './styles';
+import { Container, ReadContainer, EditContainer, Content, Footer } from './styles';
 
 export interface CardDto {
 	id: string;
@@ -59,28 +59,28 @@ export const Card = ({ id, title, content, list, onMove, onDelete, onEdit, curre
 
 	const CardRead = () => {
 		return (
-			<div>
+			<ReadContainer>
 				<header>
 					<h3>{title}</h3>
 					<button onClick={() => setMode(ModeType.edit)} aria-label="Editar">
-						<FiEdit size={24} />
+						<FiEdit size={20} color="#fff" />
 					</button>
 				</header>
 
-				<p>{content}</p>
+				<Content>{content}</Content>
 
-				<footer>
+				<Footer>
 					<button
 						aria-label="Voltar"
 						type="button"
 						disabled={currentList === 0}
 						onClick={() => handleMove(currentList - 1)}
 					>
-						<FiArrowLeftCircle size={24} />
+						<FiArrowLeftCircle size={20} color="#fff" />
 					</button>
 
 					<button aria-label="Deletar" type="button" onClick={() => onDelete(id)}>
-						<FiTrash size={24} />
+						<FiTrash size={20} color="#fff" />
 					</button>
 
 					<button
@@ -89,32 +89,32 @@ export const Card = ({ id, title, content, list, onMove, onDelete, onEdit, curre
 						disabled={listLength - 1 === currentList}
 						onClick={() => handleMove(currentList + 1)}
 					>
-						<FiArrowRightCircle size={24} />
+						<FiArrowRightCircle size={20} color="#fff" />
 					</button>
-				</footer>
-			</div>
+				</Footer>
+			</ReadContainer>
 		);
 	};
 
 	const CardEdit = () => {
 		return (
-			<form onSubmit={handleSubmit}>
+			<EditContainer onSubmit={handleSubmit}>
 				<header>
 					<input ref={titleInputRef} type="text" defaultValue={title} name="titulo" placeholder="Título" />
 				</header>
 
 				<textarea ref={contentInputRef} name="conteudo" placeholder="Conteúdo" defaultValue={content}></textarea>
 
-				<footer>
+				<Footer>
 					<button aria-label="Cancelar" type="button" onClick={() => setMode(ModeType.read)}>
-						<FiXCircle size={24} />
+						<FiXCircle size={20} color="#fff" />
 					</button>
 
 					<button aria-label="Salvar">
-						<FiSave size={24} />
+						<FiSave size={20} color="#fff" />
 					</button>
-				</footer>
-			</form>
+				</Footer>
+			</EditContainer>
 		);
 	};
 

@@ -25,7 +25,7 @@ export const FormNewCard = ({ onSubmit }: FormProps) => {
 			<input ref={titleInputRef} type="text" name="title" placeholder="Título" />
 			<input ref={contentInputRef} type="text" name="content" placeholder="Conteúdo" />
 			<button aria-label="Adicionar">
-				<FiPlusCircle size={24} />
+				<FiPlusCircle size={20} color="#fff" />
 			</button>
 		</Container>
 	);

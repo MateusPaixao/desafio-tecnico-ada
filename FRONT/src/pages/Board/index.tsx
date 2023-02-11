@@ -8,9 +8,9 @@ const Board = () => {
 	const [cards, setCards] = useState<CardDto[]>([]);
 
 	const lists = [
-		{ key: 'todo', name: 'To Do' },
-		{ key: 'doing', name: 'Doing' },
-		{ key: 'done', name: 'Done' },
+		{ key: 'todo', name: 'To Do', color: '#2A92BF' },
+		{ key: 'doing', name: 'Doing', color: '#F4CE46' },
+		{ key: 'done', name: 'Done', color: '#00B961' },
 	];
 
 	useEffect(() => {
@@ -57,13 +57,13 @@ const Board = () => {
 
 	return (
 		<Container>
-			<List name="Novo">
+			<List name="Novo" color="#FB7D44">
 				<FormNewCard onSubmit={handleCreate} />
 			</List>
 
-			{lists.map(({ key, name }, index) => {
+			{lists.map(({ key, name, color }, index) => {
 				return (
-					<List key={key} name={name}>
+					<List key={key} name={name} color={color}>
 						{cards
 							.filter(({ lista }) => lista === key)
 							.map((card) => {

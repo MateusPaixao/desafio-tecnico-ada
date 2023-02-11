@@ -19,6 +19,26 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
   font-weight: normal;
 }
 
+body {
+  background: #33363D;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  opacity: .6;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.1);
+}
+
 ol, ul {
   list-style: none;
 }

@@ -11,9 +11,11 @@
 [x] TODO: Update component: Card -> Edit mode
 [x] TODO: Icons: Add icons lib
 [x] TODO: Layout: Improve layout
+[x] TODO: Mobile: Adapt to responsive
 [x] TODO: Fix: unnecessary requests
 [x] TODO: Render Markdown 
 [ ] TODO: Style Markdown
-[ ] TODO: Tests: Unit tests
-[ ] TODO: Mobile: Adapt to responsive
+[ ] TODO: Style code on Markdown
+[ ] TODO: Tests: Unit tests -> Card, List
+[ ] TODO: Organize css: constantes for colors and breakpoints and global styles
 

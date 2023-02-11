@@ -7,7 +7,7 @@ export const Container = styled.div<ContainerProps>`
 	box-shadow: 0px 0px 50px -30px rgba(0, 0, 0.6);
 	background-color: #292b31;
 	width: 100%;
-	max-width: 250px;
+	max-width: 280px;
 
 	&:hover {
 		transition: all 0.2s ease-in-out;

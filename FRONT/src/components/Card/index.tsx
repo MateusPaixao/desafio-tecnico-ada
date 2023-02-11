@@ -1,8 +1,7 @@
 import { useState, useRef, FormEvent } from 'react';
 import { FiEdit, FiArrowLeftCircle, FiArrowRightCircle, FiTrash, FiXCircle, FiSave } from 'react-icons/fi';
-import { marked } from 'marked';
-import DOMPurify from 'dompurify';
-import { Container, ReadContainer, EditContainer, Content, Footer } from './styles';
+import { MarkdownContent } from 'components';
+import { Container, ReadContainer, EditContainer, Footer } from './styles';
 
 export interface CardDto {
 	id: string;
@@ -69,7 +68,7 @@ export const Card = ({ id, title, content, list, onMove, onDelete, onEdit, curre
 					</button>
 				</header>
 
-				<Content dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(marked(content)) }} />
+				<MarkdownContent content={content} />
 
 				<Footer>
 					<button

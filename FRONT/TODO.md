@@ -14,8 +14,9 @@
 [x] TODO: Mobile: Adapt to responsive
 [x] TODO: Fix: unnecessary requests
 [x] TODO: Render Markdown 
-[ ] TODO: Style Markdown
-[ ] TODO: Style code on Markdown
+[x] TODO: Style Markdown
+[x] TODO: Style code on Markdown (highlight.js)
+[x] TODO: Crate component: MarkdownContent
 [ ] TODO: Tests: Unit tests -> Card, List
 [ ] TODO: Organize css: constantes for colors and breakpoints and global styles
 

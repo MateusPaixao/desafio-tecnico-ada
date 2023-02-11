@@ -1,4 +1,6 @@
 import { useRef, FormEvent } from 'react';
+import { FiPlusCircle } from 'react-icons/fi';
+
 import { Container } from './styles';
 
 interface FormProps {
@@ -22,7 +24,9 @@ export const FormNewCard = ({ onSubmit }: FormProps) => {
 		<Container onSubmit={handleSubmit}>
 			<input ref={titleInputRef} type="text" name="title" placeholder="Título" />
 			<input ref={contentInputRef} type="text" name="content" placeholder="Conteúdo" />
-			<button>Adicionar</button>
+			<button aria-label="Adicionar">
+				<FiPlusCircle size={24} />
+			</button>
 		</Container>
 	);
 };

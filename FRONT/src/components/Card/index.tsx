@@ -1,4 +1,5 @@
 import { useState, useRef, FormEvent } from 'react';
+import { FiEdit, FiArrowLeftCircle, FiArrowRightCircle, FiTrash, FiXCircle, FiSave } from 'react-icons/fi';
 import { Container } from './styles';
 
 export interface CardDto {
@@ -61,21 +62,34 @@ export const Card = ({ id, title, content, list, onMove, onDelete, onEdit, curre
 			<div>
 				<header>
 					<h3>{title}</h3>
-					<button onClick={() => setMode(ModeType.edit)}>Editar</button>
+					<button onClick={() => setMode(ModeType.edit)} aria-label="Editar">
+						<FiEdit size={24} />
+					</button>
 				</header>
 
 				<p>{content}</p>
 
 				<footer>
-					<button type="button" disabled={currentList === 0} onClick={() => handleMove(currentList - 1)}>
-						voltar
-					</button>
-					<button type="button" disabled={listLength - 1 === currentList} onClick={() => handleMove(currentList + 1)}>
-						próximo
+					<button
+						aria-label="Voltar"
+						type="button"
+						disabled={currentList === 0}
+						onClick={() => handleMove(currentList - 1)}
+					>
+						<FiArrowLeftCircle size={24} />
 					</button>
 
-					<button type="button" onClick={() => onDelete(id)}>
-						remover
+					<button aria-label="Deletar" type="button" onClick={() => onDelete(id)}>
+						<FiTrash size={24} />
+					</button>
+
+					<button
+						aria-label="Próximo"
+						type="button"
+						disabled={listLength - 1 === currentList}
+						onClick={() => handleMove(currentList + 1)}
+					>
+						<FiArrowRightCircle size={24} />
 					</button>
 				</footer>
 			</div>
@@ -92,11 +106,13 @@ export const Card = ({ id, title, content, list, onMove, onDelete, onEdit, curre
 				<textarea ref={contentInputRef} name="conteudo" placeholder="Conteúdo" defaultValue={content}></textarea>
 
 				<footer>
-					<button type="button" onClick={() => setMode(ModeType.read)}>
-						cancelar
+					<button aria-label="Cancelar" type="button" onClick={() => setMode(ModeType.read)}>
+						<FiXCircle size={24} />
 					</button>
 
-					<button>salvar</button>
+					<button aria-label="Salvar">
+						<FiSave size={24} />
+					</button>
 				</footer>
 			</form>
 		);

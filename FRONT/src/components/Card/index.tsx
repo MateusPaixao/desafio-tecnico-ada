@@ -1,5 +1,7 @@
 import { useState, useRef, FormEvent } from 'react';
 import { FiEdit, FiArrowLeftCircle, FiArrowRightCircle, FiTrash, FiXCircle, FiSave } from 'react-icons/fi';
+import { marked } from 'marked';
+import DOMPurify from 'dompurify';
 import { Container, ReadContainer, EditContainer, Content, Footer } from './styles';
 
 export interface CardDto {
@@ -67,7 +69,7 @@ export const Card = ({ id, title, content, list, onMove, onDelete, onEdit, curre
 					</button>
 				</header>
 
-				<Content>{content}</Content>
+				<Content dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(marked(content)) }} />
 
 				<Footer>
 					<button

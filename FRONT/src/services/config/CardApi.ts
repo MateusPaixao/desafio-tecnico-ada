@@ -51,7 +51,9 @@ api.interceptors.response.use(
 
 			const { data } = await apiAuth.post('/login', credentialsPayload);
 			const token = data ? `Bearer ${data}` : '';
+			const accessTokenKey = 'access_token';
 
+			sessionStorage.setItem(accessTokenKey, token);
 			originalRequest.headers.Authorization = token;
 			api.defaults.headers.Authorization = token;
 			return axios.request(originalRequest);

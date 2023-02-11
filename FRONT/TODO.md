@@ -12,6 +12,8 @@
 [x] TODO: Icons: Add icons lib
 [x] TODO: Layout: Improve layout
 [x] TODO: Fix: unnecessary requests
+[x] TODO: Render Markdown 
+[ ] TODO: Style Markdown
 [ ] TODO: Tests: Unit tests
 [ ] TODO: Mobile: Adapt to responsive
 

@@ -41,6 +41,16 @@ const Board = () => {
 		e.currentTarget.reset();
 	};
 
+	const handleUpdate = (e: FormEvent<HTMLFormElement>, cardData: CardDto) => {
+		const { titulo, conteudo } = cardData;
+
+		if (!titulo?.trim() || !conteudo?.trim()) return;
+
+		CardService.update(cardData, cards).then(setCards);
+
+		e.currentTarget.reset();
+	};
+
 	const handleDelete = (cardId: string) => {
 		CardService.delete(cardId).then(setCards);
 	};
@@ -63,10 +73,12 @@ const Board = () => {
 										id={card.id}
 										title={card.titulo}
 										content={card.conteudo}
+										list={card.lista}
 										currentList={index}
 										listLength={lists.length}
 										onMove={handleMove}
 										onDelete={handleDelete}
+										onEdit={handleUpdate}
 									/>
 								);
 							})}

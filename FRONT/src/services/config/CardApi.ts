@@ -3,6 +3,10 @@ import { toast } from 'react-toastify';
 
 const apiConfig = {
 	baseURL: 'http://localhost:3333',
+	headers: {
+		Accept: 'application/json',
+		'Content-Type': 'application/json',
+	},
 };
 
 const api = axios.create(apiConfig);

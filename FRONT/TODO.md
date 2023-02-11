@@ -8,7 +8,8 @@
 [x] TODO: Update service: Card -> Add auth token logic
 [x] TODO: Create components: FormNewCard
 [x] TODO: Add Eslint
-[ ] TODO: Update component: Card -> Edit mode
+[x] TODO: Update component: Card -> Edit mode
+[ ] TODO: Icons: Add icons lib
 [ ] TODO: Layout: Improve layout
 [ ] TODO: Tests: Unit tests
 [ ] TODO: Mobile: Adapt to responsive

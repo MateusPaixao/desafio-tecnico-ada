@@ -89,7 +89,7 @@ Para buildar a aplicação para modo de produção, realizando todas as minifica
 
 ### `npm run preview`
 
-Para rodar a aplicação em modo preview/produção, lembre que não haverá hot reload e as alterações não serão refletidas nessa página. Caso queira atualizar e visualizar as alterações pare o preview, execute `npm run buld` novamente rode `npm run preview`. 
+Para rodar a aplicação em modo preview/produção, lembre que não haverá hot reload e as alterações não serão refletidas nessa página. Caso queira atualizar e visualizar as alterações pare o preview, execute `npm run build` novamente rode `npm run preview`. 
 
 <a  id="links-uteis"></a>
 
@@ -109,4 +109,4 @@ Para rodar a aplicação em modo preview/produção, lembre que não haverá hot
 ## Agradecimento
 
   
-Agradeço a oportunidade de realizar o desafio, espero que tenha ficado dentro do esperado, dei o melhor no do período que foi estabelecido. Obrigado! =D
+Agradeço a oportunidade de realizar o desafio, espero que tenha ficado dentro do esperado, dei o melhor no período que foi estabelecido. Obrigado! =D

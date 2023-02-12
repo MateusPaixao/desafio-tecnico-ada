@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { Card } from '.';
 
 const cardMocked = {
@@ -50,7 +50,7 @@ describe('<Card />', () => {
 		expect(buttonCancel).toBeInTheDocument();
 	});
 
-	it('should Card component call the passed functions', () => {
+	it('should Card component call onMove function', () => {
 		render(<Card {...cardMocked} />);
 
 		const buttonNext = screen.getByLabelText('Próximo');
@@ -60,5 +60,19 @@ describe('<Card />', () => {
 		fireEvent.click(buttonNext);
 
 		expect(cardMocked.onMove).toHaveBeenCalledOnce();
+	});
+
+	it('should Card component call onEdit function', () => {
+		render(<Card {...cardMocked} />);
+
+		const buttonEdit = screen.getByLabelText('Editar');
+		fireEvent.click(buttonEdit);
+		expect(buttonEdit).not.toBeInTheDocument();
+
+		const form = screen.getByTestId('card-edit-form');
+
+		fireEvent.submit(form);
+
+		expect(cardMocked.onEdit).toHaveBeenCalledOnce();
 	});
 });

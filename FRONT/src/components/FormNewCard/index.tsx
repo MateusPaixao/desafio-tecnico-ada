@@ -21,7 +21,7 @@ export const FormNewCard = ({ onSubmit }: FormProps) => {
 	};
 
 	return (
-		<Container onSubmit={handleSubmit}>
+		<Container data-testid="form-new-card" onSubmit={handleSubmit}>
 			<input ref={titleInputRef} type="text" name="title" placeholder="Título" />
 			<textarea ref={contentInputRef} name="content" placeholder="Conteúdo"></textarea>
 			<button aria-label="Adicionar">

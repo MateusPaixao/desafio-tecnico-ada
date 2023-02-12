@@ -99,7 +99,7 @@ export const Card = ({ id, title, content, list, onMove, onDelete, onEdit, curre
 
 	const CardEdit = () => {
 		return (
-			<EditContainer onSubmit={handleSubmit}>
+			<EditContainer data-testid="card-edit-form" onSubmit={handleSubmit}>
 				<header>
 					<input ref={titleInputRef} type="text" defaultValue={title} name="titulo" placeholder="Título" />
 				</header>

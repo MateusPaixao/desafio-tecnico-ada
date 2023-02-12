@@ -37,7 +37,7 @@ Após <a target="_blank" href="https://docs.github.com/pt/repositories/creating-
 Depois abra outra janela do terminal e execute o front-end:
 
 ```bash
->  cd FRONT
+>  cd ../FRONT
 >  npm install
 >  npm run dev
 ```

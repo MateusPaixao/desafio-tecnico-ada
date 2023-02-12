@@ -17,6 +17,6 @@
 [x] TODO: Style Markdown
 [x] TODO: Style code on Markdown (highlight.js)
 [x] TODO: Crate component: MarkdownContent
-[ ] TODO: Tests: Unit tests -> Card, List
+[ ] TODO: Tests: Unit tests -> at least Card and List
 [ ] TODO: Organize css: constantes for colors and breakpoints and global styles
 

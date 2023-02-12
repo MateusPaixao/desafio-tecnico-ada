@@ -1,5 +1,5 @@
 import { marked } from 'marked';
-import DOMPurify from 'dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 import hljs from 'highlight.js';
 
 import { Container } from './styles';
@@ -16,11 +16,11 @@ export const MarkdownContent = ({ content }: MarkdownContentProps) => {
 			language: language || 'text',
 			ignoreIllegals: true,
 		}).value;
-		return `<pre><code class="hljs ${language}">${codeHighlight}</code></pre>`;
+		return `<pre><code data-testid="code-highlight" class="hljs ${language}">${codeHighlight}</code></pre>`;
 	};
 
 	const html = marked(content, { renderer });
 	const purifiedHtml = DOMPurify.sanitize(html);
 
-	return <Container dangerouslySetInnerHTML={{ __html: purifiedHtml }} />;
+	return <Container data-testid="markdown-content" dangerouslySetInnerHTML={{ __html: purifiedHtml }} />;
 };
